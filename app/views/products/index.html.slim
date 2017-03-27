@@ -1,4 +1,6 @@
 h1 All Products
 
-/! This is a comment
-= render partial: 'product', collection: @products, locals: {full_details: false}
+.container-fluid
+  .row
+    .col-12
+        = render partial: 'product', collection: @products, locals: {full_details: false}

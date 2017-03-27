@@ -1,11 +1,11 @@
-.product
-  h2 = product.name
+div class='product d-inline'
+  / h2 = product.name
   = unless product.image_url.empty?
-    = image_tag product.image_url
-  p
-    strong> Price:
-    = number_to_currency(product.price)
-  - if full_details
-    p = product.description
-  - else
-    p = link_to 'details', product
+    = image_tag product.image_url, class:'img-thumbnail'
+  / p
+  /   strong> Price:
+  /   = number_to_currency(product.price)
+  / - if full_details
+  /   p = product.description
+  / - else
+  /   p = link_to 'details', product
