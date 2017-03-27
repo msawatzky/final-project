@@ -1,7 +1,7 @@
 div class='product d-inline'
   / h2 = product.name
-  = unless product.image_url.empty?
-    = image_tag product.image_url, class:'img-thumbnail'
+  - if product.image.present?
+    = image_tag product.image, class:'img-thumbnail'
   / p
   /   strong> Price:
   /   = number_to_currency(product.price)
