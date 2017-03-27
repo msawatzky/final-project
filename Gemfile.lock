@@ -98,6 +98,8 @@ GEM
       warden (~> 1.2.3)
     erubis (2.7.0)
     execjs (2.7.0)
+    fancybox-rails (0.3.1)
+      railties (>= 3.1.0)
     ffi (1.9.18)
     formtastic (3.1.5)
       actionpack (>= 3.2.13)
@@ -246,6 +248,7 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.2)
   devise
+  fancybox-rails
   inherited_resources!
   jbuilder (~> 2.5)
   jquery-rails

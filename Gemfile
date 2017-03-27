@@ -46,6 +46,9 @@ gem 'bootstrap', '~> 4.0.0.alpha6'
 # Add Slim
 gem 'slim-rails'
 
+# Add Fancy Box
+gem 'fancybox-rails'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
