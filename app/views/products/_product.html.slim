@@ -1,11 +1,11 @@
-div class='product d-inline'
-  / h2 = product.name
-  - if product.image.present?
-    = image_tag product.image, class:'img-thumbnail'
-  / p
-  /   strong> Price:
-  /   = number_to_currency(product.price)
-  / - if full_details
-  /   p = product.description
-  / - else
-  /   p = link_to 'details', product
+div class='product'
+  a href='#' class='product list-group-item list-group-item-action flex-column align-items-start'
+    / - if product.image.present?
+    /   = image_tag product.image, class:'img-thumbnail'
+    div class='d-flex w-100 justify-content-between'
+      h5 class='mb-l'
+        = product.name
+      small
+        = number_to_currency(product.price)
+    p class='mb-1'
+      = product.description
