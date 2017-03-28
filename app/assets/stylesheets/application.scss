@@ -11,12 +11,26 @@
  * It is generally better to create a new file per style scope.
  *
  */
- @import "bootstrap";
- @import "products.scss";
- @import "fancybox";
+@import "bootstrap";
+@import "products.scss";
+@import url('https://fonts.googleapis.com/css?family=Niconne');
 
- .gallery
-{
-    display: inline-block;
-    margin-top: 20px;
+// Title font variable
+$title-font: 'Niconne', cursive;
+$purple-primary: #8c025c;
+$background-image-path: 'green-dust-background.png';
+
+body{
+  background-image: url($background-image-path);
+}
+
+.gallery{
+  display: inline-block;
+  margin-top: 20px;
+}
+
+.title{
+  font-family: $title-font;
+  font-size: 2.5em;
+  color: $purple-primary;
 }

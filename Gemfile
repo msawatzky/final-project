@@ -42,13 +42,8 @@ gem 'devise'
 
 # Add bootstrap
 gem 'bootstrap', '~> 4.0.0.alpha6'
-
 # Add Slim
 gem 'slim-rails'
-
-# Add Fancy Box
-gem 'fancybox-rails'
-
 # Add Carrierwave
 gem 'carrierwave', '~> 1.0'
 
