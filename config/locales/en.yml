@@ -21,3 +21,6 @@
 
 en:
   hello: "Hello world"
+  errors:
+    messages:
+      extension_whitelist_errror: "Please select an image file. (jpg, jpeg, png, gif)"
