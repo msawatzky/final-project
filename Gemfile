@@ -46,6 +46,8 @@ gem 'bootstrap', '~> 4.0.0.alpha6'
 gem 'slim-rails'
 # Add Carrierwave
 gem 'carrierwave', '~> 1.0'
+# Gem for pagination
+gem 'kaminari'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

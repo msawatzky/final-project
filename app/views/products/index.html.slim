@@ -3,3 +3,6 @@
     div class='col-7'
       div class='list-group mt-3'
         = render partial: 'product', collection: @products, locals: {full_details: false}
+      .card
+        div class='card-block'
+            = paginate @products
