@@ -2,7 +2,9 @@
   div class='row justify-content-center'
     div class='col-7'
       div class='list-group mt-3'
-        = render partial: 'product', collection: @products, locals: {full_details: false}
+      - @products.each do |product|
+        = link_to  product_path(product), class: 'product list-group-item list-group-item-action flex-column align-items-start' do
+          = render partial: 'product', object: product, locals: {full_details: false}
       .card
         div class='card-block'
             = paginate @products

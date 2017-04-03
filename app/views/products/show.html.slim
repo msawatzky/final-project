@@ -1,3 +1,9 @@
-= render partial: 'product', locals: {full_details: true}
-
-p = link_to 'Home', root_path
+.container-fluid
+  div class='row justify-content-center'
+    - if @product.image.present?
+      div class='col-2'
+        = image_tag @product.image, class: 'img-fluid, img-thumbnail', alt: @product.name
+    div class='col-3'
+      .card
+        .card-block
+          = render partial: 'product', object: @product, locals: {full_details: true}
