@@ -1,2 +1,6 @@
-h1 Pages#about
-p Find me in app/views/pages/about.html.slim
+div class='row justify-content-center'
+  .col-10
+    .card
+      .card-block
+        h1 class='card-title' = @page.title
+        p class='card-text' = @page.description
