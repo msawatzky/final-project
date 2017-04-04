@@ -48,6 +48,8 @@ gem 'slim-rails'
 gem 'carrierwave', '~> 1.0'
 # Gem for pagination
 gem 'kaminari'
+# Rubocop
+gem 'rubocop'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
