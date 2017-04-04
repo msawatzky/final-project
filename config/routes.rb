@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   get 'contact', to: 'pages#contact'
 
+  get 'products/filter', to: 'products#filter'
+
   resources 'products', only: [:index, :show]
 
   root to: 'pages#about'

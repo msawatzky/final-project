@@ -1,10 +1,20 @@
 .container-fluid
   div class='row justify-content-center'
     div class='col-7'
+      form action='filter' method='get'
+        select class='form-control' name='category_id' id='categories-select'
+          option value=0 All
+          - @categories.each do |category|
+            option value=category.id =category.name
+        input type='text' name='search_text' class='form-control' placeholder='Filter by Text'
+        span class='input-group-btn'
+          button class='btn btn-secondary' type='submit' Filter!
       div class='list-group mt-3'
       - @products.each do |product|
         = link_to  product_path(product), class: 'product list-group-item list-group-item-action flex-column align-items-start' do
           = render partial: 'product', object: product, locals: {full_details: false}
       .card
         div class='card-block'
-            = paginate @products
+          = paginate @products
+          - if @products.empty?
+            p class='text-center' Sorry! I don't have any products that match that description :(
