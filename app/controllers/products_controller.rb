@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   def index
-    @products = Product.all.page(params[:page]).per(5)
+    @products = Product.all.order(price: :desc).page(params[:page]).per(5)
     @categories = Category.all
   end
 
@@ -25,7 +25,7 @@ class ProductsController < ApplicationController
     @categories = Category.all
 
     # Set pagination for products
-    @products = @products.page(params[:page]).per(5)
+    @products = @products.order(price: :desc).page(params[:page]).per(5)
 
     render "index"
   end

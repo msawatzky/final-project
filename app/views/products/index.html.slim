@@ -1,7 +1,7 @@
 .container-fluid
   div class='row justify-content-center'
     div class='col-7'
-      form action='filter' method='get'
+      = form_tag(products_filter_path, method:"get") do
         select class='form-control' name='category_id' id='categories-select'
           option value=0 All
           - @categories.each do |category|
