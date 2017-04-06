@@ -6,7 +6,7 @@
           option value=0 All
           - @categories.each do |category|
             option value=category.id =category.name
-        input type='text' name='search_text' class='form-control' placeholder='Filter by Text'
+        input type='text' name='search_text' class='form-control' placeholder='Filter by Text' =@search_text
         span class='input-group-btn'
           button class='btn btn-secondary' type='submit' Filter!
       div class='list-group mt-3'

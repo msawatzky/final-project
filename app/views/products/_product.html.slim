@@ -6,4 +6,4 @@
   h3 = number_to_currency product.price
 - if full_details
   .card-text
-    = link_to "Add to Cart", "", class: 'btn btn-primary'
+    = link_to "Add to Cart", add_to_cart_path(:id => product.id), method: :post, class: 'btn btn-primary'

@@ -1,0 +1,20 @@
+.container-fluid
+  div class='row justify-content-center'
+    div class='col-7'
+      .card
+        h1 class='text-center' Your Shopping Cart!
+        table class='table table-striped'
+          thead
+            tr
+              td Name
+              td Price
+              td Quantity
+              td
+          tbody
+            - session[:cart].each do |key, quantity|
+              - @product = Product.find(key)
+              tr
+                td = @product.name
+                td = @product.price
+                td
+                  input type='text' quantity
