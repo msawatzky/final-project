@@ -11,12 +11,17 @@
               td Quantity
               td
           tbody
+          - if session[:cart] != nil
             - session[:cart].each do |key, quantity|
-              - product = Product.find(key)
-              tr
-                td = product.name
-                td = product.price
-                td
-                  input type='text' class='form-control' value= quantity
-                td
-                   = link_to "Update Quantity", update_quantity_path(:id => product.id), method: :post, class: 'btn btn-sm btn-primary'
+              = form_tag update_quantity_path method:'post' do
+                - product = Product.find(key)
+                = hidden_field_tag 'id', product.id
+                tr
+                  td = product.name
+                  td = product.price
+                  td
+                    input name='quantity' type='text' class='form-control' value= quantity
+                  td
+                    button type='submit' class='btn btn-sm btn-primary' Update Quantity
+          - else
+            h3 You have nothing in your cart.

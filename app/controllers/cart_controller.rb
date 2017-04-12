@@ -10,6 +10,10 @@ class CartController < ApplicationController
   end
 
   def update_quantity
+    id = params[:id].to_i
+    quantity = params[:quantity].to_i
+    session[:cart][id] = quantity
+    redirect_to action: 'index'
   end
 
   private
