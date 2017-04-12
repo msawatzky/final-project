@@ -25,8 +25,10 @@ class ProductsController < ApplicationController
 
   def add_to_cart
     id = params[:id].to_i
-    session[:cart][id] = 1 unless session[:cart][id]
-    render 'cart'
+    # cart = session[:cart]
+    session[:cart][id] = 1 unless session[:cart].key?(id)
+    # session[:cart] = cart
+    redirect_to action: 'cart'
   end
 
   private

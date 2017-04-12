@@ -12,9 +12,11 @@
               td
           tbody
             - session[:cart].each do |key, quantity|
-              - @product = Product.find(key)
+              - product = Product.find(key)
               tr
-                td = @product.name
-                td = @product.price
+                td = product.name
+                td = product.price
                 td
-                  input type='text' quantity
+                  input type='text' class='form-control' value= quantity
+                td
+                  /  = link_to "Update Quantity", update_quantity(:id => product.id), method: :post, class: 'btn btn-sm btn-primary'
