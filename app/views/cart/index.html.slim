@@ -1,0 +1,27 @@
+.container-fluid
+  div class='row justify-content-center'
+    div class='col-7'
+      .card
+        h1 class='text-center' Your Shopping Cart!
+        table class='table table-striped'
+          thead
+            tr
+              td Name
+              td Price
+              td Quantity
+              td
+          tbody
+          - if session[:cart] != nil
+            - session[:cart].each do |key, quantity|
+              = form_tag update_quantity_path method:'post' do
+                - product = Product.find(key)
+                = hidden_field_tag 'id', product.id
+                tr
+                  td = product.name
+                  td = product.price
+                  td
+                    input name='quantity' type='text' class='form-control' value= quantity
+                  td
+                    button type='submit' class='btn btn-sm btn-primary' Update Quantity
+          - else
+            h3 You have nothing in your cart.

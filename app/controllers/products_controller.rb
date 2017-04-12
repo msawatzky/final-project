@@ -1,5 +1,4 @@
 class ProductsController < ApplicationController
-  before_action :initialize_session
   def index
     @products = Product.all.order(price: :desc).page(params[:page]).per(5)
     @categories = Category.all
@@ -8,8 +7,6 @@ class ProductsController < ApplicationController
   def show
     @product = Product.find(params[:id])
   end
-
-  def cart; end
 
   def filter
     @category_id = params[:category_id].to_i
@@ -21,17 +18,5 @@ class ProductsController < ApplicationController
     # Get all categories for dropdown
     @categories = Category.all
     render 'index'
-  end
-
-  def add_to_cart
-    id = params[:id].to_i
-    session[:cart][id] = 1 unless session[:cart][id]
-    render 'cart'
-  end
-
-  private
-
-  def initialize_session
-    session[:cart] ||= {}
   end
 end
