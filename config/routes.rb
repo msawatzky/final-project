@@ -1,10 +1,16 @@
 Rails.application.routes.draw do
   root to: 'pages#about'
+
+  # Page Routes
   get 'contact', to: 'pages#contact'
   get 'products/filter', to: 'products#filter'
-  get 'cart', to: 'products#cart'
-  post 'add-to-cart', to: 'products#add_to_cart'
 
+  # Cart Routes
+  get 'cart', to: 'cart#index'
+  post 'add-to-cart', to: 'cart#add_to_cart'
+  post 'update-quantity', to: 'cart#update_quantity'
+
+  # Product Routes
   resources 'products', only: [:index, :show]
 
   devise_for :admin_users, ActiveAdmin::Devise.config
