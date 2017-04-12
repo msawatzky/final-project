@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   post 'add-to-cart', to: 'cart#add_to_cart'
   post 'update-quantity', to: 'cart#update_quantity'
 
+  # Checkout Routes
+  post 'checkout', to: 'checkout#index'
+
   # Product Routes
   resources 'products', only: [:index, :show]
 

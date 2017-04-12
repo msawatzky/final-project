@@ -3,25 +3,47 @@
     div class='col-7'
       .card
         h1 class='text-center' Your Shopping Cart!
-        table class='table table-striped'
-          thead
-            tr
-              td Name
-              td Price
-              td Quantity
-              td
-          tbody
-          - if session[:cart] != nil
-            - session[:cart].each do |key, quantity|
-              = form_tag update_quantity_path method:'post' do
-                - product = Product.find(key)
-                = hidden_field_tag 'id', product.id
-                tr
-                  td = product.name
-                  td = product.price
-                  td
-                    input name='quantity' type='text' class='form-control' value= quantity
-                  td
-                    button type='submit' class='btn btn-sm btn-primary' Update Quantity
-          - else
-            h3 You have nothing in your cart.
+        - if session[:cart].present?
+          table class='table table-striped'
+            thead
+              tr
+                td Name
+                td Price
+                td Quantity
+                td
+            tbody
+              - session[:cart].each do |key, quantity|
+                = form_tag update_quantity_path method:'post' do
+                  - product = Product.find(key)
+                  = hidden_field_tag 'id', product.id
+                  tr
+                    td = product.name
+                    td = product.price
+                    td
+                      input name='quantity' type='text' class='form-control' value= quantity
+                    td
+                      button type='submit' class='btn btn-sm btn-primary' Update Quantity
+        - else
+          p class='text-center' You have nothing in your cart.
+
+        = link_to "Checkout!", "#checkout-modal", :class => "btn", "data-toggle" => "modal"
+
+        / Checkout Modal
+        div class="modal fade" id="checkout-modal" tabindex="-1" role="dialog"
+          .modal-dialog role="document"
+            .modal-content
+              .modal-header
+                h5 class="modal-title" Just need a few things from you first
+                button type="button" class="close" data-dismiss="modal" aria-label="Close" x
+              .modal-body
+                = form_tag checkout_path method:'post' do
+                  .form-group
+                    = label_tag :address, "Address:"
+                    = text_field_tag :address, nil, class:"form-control"
+                  .form-group
+                    = label_tag :province, "Province:"
+                    = select_tag :province, options_for_select([['Ontario','ON'],['Quebec','QC'],['Manitoba','MB'],['Alberta', 'AB']]), class:"form-control"
+                end
+              .modal-footer
+                button type="button" class="btn btn-secondary" data-dismiss="modal" Close
+                button type="submit" class="btn btn-success" Okay, Now Checkout!
