@@ -1,6 +1,7 @@
 class Product < ApplicationRecord
   validates :name, :description, :price, :category_id, presence: true
   belongs_to :category
+  has_many :order_products
   mount_uploader :image, ImageUploader
 
   def self.filter_by(category_id, search_text)
