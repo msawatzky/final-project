@@ -26,5 +26,11 @@ class CheckoutController < ApplicationController
     end
     @taxes = @subtotal * (SALES_TAX_BY_PROVINCE[province_code] + GST)
     @total = @subtotal + @taxes
+
+    # Set session has to a variable
+    @cart_hash = session[:cart]
+
+    # Clear cart session
+    session.delete(:cart)
   end
 end

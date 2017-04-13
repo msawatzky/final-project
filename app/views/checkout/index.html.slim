@@ -11,7 +11,7 @@
               td Quantity
               td
           tbody
-            - session[:cart].each do |key, quantity|
+            - @cart_hash.each do |key, quantity|
               = form_tag update_quantity_path method:'post' do
                 - product = Product.find(key)
                 = hidden_field_tag 'id', product.id

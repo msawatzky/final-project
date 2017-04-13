@@ -23,10 +23,9 @@
                       input name='quantity' type='text' class='form-control' value= quantity
                     td
                       button type='submit' class='btn btn-sm btn-primary' Update Quantity
+          = link_to "Checkout!", "#checkout-modal", :class => "btn", "data-toggle" => "modal"
         - else
           p class='text-center' You have nothing in your cart.
-
-        = link_to "Checkout!", "#checkout-modal", :class => "btn", "data-toggle" => "modal"
 
         / Checkout Modal
         div class="modal fade" id="checkout-modal" tabindex="-1" role="dialog"
